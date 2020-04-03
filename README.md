@@ -1,12 +1,17 @@
 # TikTok crawler
+
 ![](img/page_top.png)
 
----
+* * *
+
 #### Motivation for the project
+
 I have a background in both geographical information science and information system and I came across an opportunity to be part of a research project to understand how TikTok (a social media video app) serves as an emotional care space for Chinese older people. The completion of this project highly relies on collecting social media data from TikTok, analyzing, and visualizing such a big dataset. This github repository contains both code to collect video title data and code to collect comment data from specific videos.
 
----
+* * *
+
 #### App manipulation using Airtest IDE
+
 One issue that I encounter when crawling TikTok data is its data accessibility. Currently, TikTok does not provide any APIs or other forms to provide its internal data. Moreover, TikTok is a social media service that only runs on smart phones OS such as iPhone and Android and I am not able to crawl its data from a webpage using [selenium webdriver](https://selenium.dev/projects/).
 
 Therefore, I am using `Airtest IDE` to connect to and manipulate an android interface. `Airtest IDE` is a cross-platform UI test automation Integrated Development Environment (IDE) for games and apps providing a wide range of tools for mobile app developers and testers to write fully automated test scripts in a convenient way and in easy to use environment. It allows manipulation of the interface and retrieval of android elements from the screen. It can be downloaded for free from [here](http://airtest.netease.com/docs/en/index.html).
@@ -31,8 +36,10 @@ I can then manipulate the emulator through `Airtest IDE`. After downloading TikT
 
 Another tool that I will be using is its image recognition tool. It allows selection and clicking certain part of the screen based on a saved image and recognition of the image. For more tools and more detailed decumentations, visit [Airtest IDE Documentation](http://airtest.netease.com/docs/en/index.html).
 
----
+* * *
+
 #### Crawling titles
+
 `Airtest IDE` uses `Python 3` language. Although writing a automation code requires importing different modules, this IDE does all the pre-requisite for you. Additional modules have to be imported manually.
 
 ```Python
@@ -89,9 +96,10 @@ Below is a sample look of the data colected for search word `爷爷`.
 
 ![](img/title_data_sample.png)
 
----
+* * *
 
 #### Crawling comment data
+
 Now let's crawl comment data on certain videos. I will be crwaling the comment data for three most popular videos of a popular elderly on TikTok, `蔡昀恩`. First, I will do a search to see the top-three video that shows up for `蔡昀恩`. It is important to perform `sleep()` function since `Airtest IDE` needs some time to update its screen page and recognize all the android elements.
 
 ```Python
@@ -128,13 +136,15 @@ for n in range(50):
     poco("com.ss.android.ugc.aweme:id/cto").swipe([-0.1143, -0.4767])
     sleep(1)
 ```
+
 I then repeat this process for the second video and the third video.
 
 Here is a sample of data retrieved:
 
 ![](img/comments_sample.png)
 
----
+* * *
 
 #### Finally...
-I hope to draw meaningful insights from the empirical study using data collected.
+
+I hope to draw meaningful insights from the empirical study using data collected. If you have any questions regarding this crawler please contact jouh@uw.edu
